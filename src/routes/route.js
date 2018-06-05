@@ -11,7 +11,7 @@
 
 import Backbone from 'backbone';
 
-export default function createAppRouter () {
+export default function createRouter (MainPageView, noStartHistory) {
   const AppRouter = Backbone.Router.extend({
     routes: {
       '': 'main',
@@ -19,14 +19,23 @@ export default function createAppRouter () {
     },
 
     main() {
-      console.log('main');
+      console.log(mainPageView, 'mpv');
+      //document.getElementById('app').innerHTML = 'wjj42s1';
     },
 
     renderTopic() {
-      console.log('topic');
+
     }
   });
 
+  // 初始化入口View
+  const mainPageView = new MainPageView();
+
+  // 初始化Router，通过路由规则绑定action
   new AppRouter();
-  Backbone.history.start({ pushState: true, hashChange: false });
+
+  // 监听url变化，触发action
+  if (!noStartHistory) {
+    Backbone.history.start();
+  }
 }

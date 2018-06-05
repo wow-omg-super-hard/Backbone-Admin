@@ -15,7 +15,7 @@ export default function fetchModel (extractKey) {
         return res;
       }
 
-      this.trigger('error', this, '后端数据返回格式错误!!!');
+      this.trigger('error', this, '请返回规定的数据结构');
 
       return void 0;
     },

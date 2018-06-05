@@ -7,7 +7,7 @@ var venderModules = require('./vender-modules');
 module.exports = {
   // 入口文件，及其将所有第三方包打包在一起
   entry: {
-    app: [ path.join(pathInfo.__SRC__, 'main.js') ],
+    app: [ path.join(pathInfo.__SRC__, 'index.js') ],
     vender: venderModules
   },
 
@@ -21,6 +21,7 @@ module.exports = {
     alias: {
       views: path.join(pathInfo.__SRC__, 'views'),
       models: path.join(pathInfo.__SRC__, 'models'),
+      routes: path.join(pathInfo.__SRC__, 'routes'),
       api: path.join(pathInfo.__SRC__, 'api'),
       assists: path.join(pathInfo.__SRC__, 'assists')
     }
@@ -57,6 +58,11 @@ module.exports = {
             name: 'imgs/[name].[ext]'
           }
         }
+      },
+      {
+        test: /\.html?/i,
+        exclude: path.join(pathInfo.__SRC__, 'index.html'),
+        use: 'html-loader'
       }
     ]
   },
@@ -65,7 +71,7 @@ module.exports = {
   plugins: [
     new htmlPlugin({
       title: '基于Backbone的后台管理系统',
-      template: path.join(pathInfo.__ROOT__, 'index.html'),
+      template: path.join(pathInfo.__SRC__, 'index.html'),
       inject: true
     })
   ]
