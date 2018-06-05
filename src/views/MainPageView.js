@@ -1,4 +1,4 @@
-import Backbone from 'backbone';
+import { View } from 'backbone';
 
 export default Backbone.View.extend({
   id: 'app',
