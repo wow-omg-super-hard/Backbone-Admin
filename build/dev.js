@@ -43,15 +43,12 @@ baseConfig.devServer = {
 // 对第三方ui库的css和全局css只进行普通的引用，否则触发不了class
 baseConfig.module.rules.push({
   test: /\.css$/i,
-  include: [ path.join(pathInfo.__ROOT__, 'statics'), path.join(pathInfo.__ROOT__, 'node_modules') ],
+  include: [ path.join(pathInfo.__ROOT__, 'node_modules') ],
   use: [
     {
       loader: 'style-loader'
     }, {
-      loader: 'css-loader',
-      options: {
-        sourceMap: true
-      }
+      loader: 'css-loader'
     }
   ]
 });
@@ -59,6 +56,7 @@ baseConfig.module.rules.push({
 // 对第三方ui库的css和全局css进行CSS Modules
 baseConfig.module.rules.push({
   test: /\.css$/i,
+  exclude: [ path.join(pathInfo.__ROOT__, 'node_modules') ],
   use: [
     {
       loader: 'style-loader'
@@ -66,7 +64,6 @@ baseConfig.module.rules.push({
     {
       loader: 'css-loader',
       options: {
-        sourceMap: true,
         modules: true,
         localIdentName: '[name]__[local]-[hash:base64:6]'
       }

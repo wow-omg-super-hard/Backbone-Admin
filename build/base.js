@@ -19,9 +19,12 @@ module.exports = {
     extensions: [ '.js', '.jsx', '.json' ],
     // 模块路径别名
     alias: {
+      components: path.join(pathInfo.__SRC__, 'components'),
       views: path.join(pathInfo.__SRC__, 'views'),
+      templates: path.join(pathInfo.__SRC__, 'templates'),
       models: path.join(pathInfo.__SRC__, 'models'),
-      routes: path.join(pathInfo.__SRC__, 'routes'),
+      statics: path.join(pathInfo.__SRC__, 'statics'),
+      routers: path.join(pathInfo.__SRC__, 'routers'),
       api: path.join(pathInfo.__SRC__, 'api'),
       assists: path.join(pathInfo.__SRC__, 'assists')
     }

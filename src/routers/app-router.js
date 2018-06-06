@@ -1,4 +1,5 @@
 /**
+ * 初始化一级view
  * 路由处理(让url具有绑定action和监听url变化并且触发action)
  * 解决两个问题
  * 1、点击浏览器前进后退时，会离开网站
@@ -9,33 +10,46 @@
  *
  */
 
-import Backbone from 'backbone';
+import { Router } from 'backbone';
 
-export default function createRouter (MainPageView, noStartHistory) {
-  const AppRouter = Backbone.Router.extend({
+export default function createRouter (AppView, noStartHistory) {
+  const AppRouter = Router.extend({
+    initialize() {
+      // 初始化主View
+      this.appView = new AppView();
+    },
+
     routes: {
       '': 'main',
       'topic': 'renderTopic'
     },
 
     main() {
-      console.log(mainPageView, 'mpv');
-      //document.getElementById('app').innerHTML = 'wjj42s1';
+
     },
 
     renderTopic() {
+      this.setView();
+    },
 
+    setMainView(view) {
+      this.cleanMainView();
+      this.mainView = view.render().appendTo(this.appView.$el);
+    },
+
+    cleanMainView() {
+      if (this.mainView) {
+        this.mainView.remove();
+        this.mainView = null;
+      }
     }
   });
-
-  // 初始化入口View
-  const mainPageView = new MainPageView();
 
   // 初始化Router，通过路由规则绑定action
   new AppRouter();
 
   // 监听url变化，触发action
   if (!noStartHistory) {
-    Backbone.history.start();
+    Backbone.history.start({ pushState: true, hashChange: false });
   }
 }

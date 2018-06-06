@@ -1,0 +1,53 @@
+:global(#app) {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  height: 100%;
+}
+
+header {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  height: 45px;
+  padding: 0 20px;
+  background: #222;
+  border-bottom: 1px solid rgba(255, 255, 255, .2);
+}
+
+.logo {
+  width: 220px;
+  font-size: 18px;
+  color: #fff;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-pack: center;
+  text-decoration: none;
+}
+
+.user-dropdown {
+  color: #fff;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-pack: center;
+  font-size: 14px;
+}
+
+main {
+  flex: 1;
+}
+
+footer {
+  line-height: 40px;
+  height: 40px;
+  border-top: 1px solid rgba(255, 255, 255, .2);
+  background: #222;
+}
