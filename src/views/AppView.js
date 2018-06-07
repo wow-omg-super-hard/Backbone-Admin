@@ -3,9 +3,9 @@
  */
 import { View, Model } from 'backbone';
 import { template } from 'underscore';
-import appTmpl from 'templates/AppTmpl.html';
+import appTmpl from 'templates/app-tmpl.html';
 import indexStyle from 'statics/css/layouts/index.css';
-import Dropdown from 'components/dropdown/Dropdown';
+import UserinfoMenuView from 'views/displays/UserinfoMenuView';
 
 export default Backbone.View.extend({
   id: 'app',
@@ -13,9 +13,8 @@ export default Backbone.View.extend({
   template: template(appTmpl),
 
   initialize() {
-    // 初始化下拉列表组件
-    this.dropdownCom = new Dropdown({
-      dropdowns: [ '个人信息', '退出' ],
+    // 初始化用户信息菜单view
+    this.userinfoMenuView = new UserinfoMenuView({
       onChange(text) {
         alert(text);
       }
@@ -27,6 +26,6 @@ export default Backbone.View.extend({
     const res = { style: indexStyle };
 
     this.$el.html(this.template({ style: indexStyle })).appendTo(document.body);
-    this.$(`.${ indexStyle[ 'user-dropdown' ] }`).append(this.dropdownCom.$el);
+    this.$(`.${ indexStyle[ 'user-dropdown' ] }`).append(this.userinfoMenuView.$el);
   }
 });
