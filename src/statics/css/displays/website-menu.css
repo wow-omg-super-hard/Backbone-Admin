@@ -6,12 +6,11 @@
 }
 
 .wrapper li {
-  border-bottom: 1px solid #e5e5e5;
   list-style: none;
 }
 
-.wrapper .open {
-  border: 0 none;
+.wrapper .add-bottom-line {
+  border-bottom: 1px solid #e5e5e5;
 }
 
 .wrapper > li > a,
@@ -22,6 +21,11 @@
   text-decoration: none;
   color: #333;
   text-align: center;
+}
+
+.wrapper > li > a:hover,
+.sub-wrapper > li > a:hover {
+  color: #148cf1;
 }
 
 .sub-wrapper > li > a {

@@ -1,4 +1,4 @@
-import { View } from 'backbone';
+import { View, $ } from 'backbone';
 import { template } from 'underscore';
 import config from '../../config';
 import WebsiteMenuCollection from 'collections/WebsiteMenuCollection';
@@ -16,13 +16,41 @@ export default View.extend({
 
   template: template(tmpl),
 
+  events: {
+    'click': 'toggleSlideHandle'
+  },
+
+  toggleSlideHandle(e) {
+    const canTrigger = !!e.target.dataset[ 'is_parent_node' ] || !!e.target.parentNode.dataset[ 'is_parent_node' ];
+    const combiledClassName = style[ 'sub-wrapper' ];
+    let $slideEl;
+
+    if (canTrigger) {
+      $slideEl = $(e.target).parents('li').find(`.${ combiledClassName }`);
+      this.$(`.${ combiledClassName }`).slideUp(250);
+
+      if ($slideEl.is(':hidden')) {
+        $slideEl.slideDown(250);
+      } else {
+        $slideEl.slideUp(250);
+      }
+    }
+  },
+
   createTreeMenuHTML() {
     const menus = this.collection.getTreeMenus();
     const html = ['<ul class="'+ style.wrapper +'">'];
+    let isParent;
 
     function create (menu) {
+      isParent = menu.child && !menu.url;
       html.push('<li>');
-      html.push(this.template({ menu }));
+      html.push(this.template({
+        title: menu.title,
+        url: isParent ? 'javascript:;' : menu.url,
+        addBottomLineStyle: isParent ? '' : style[ 'add-bottom-line' ],
+        isParentNode: isParent
+      }));
 
       if (menu.child) {
         html.push('<ul class="'+ style[ 'sub-wrapper' ] +'">')
