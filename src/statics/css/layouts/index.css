@@ -45,6 +45,19 @@ header {
 
 main {
   flex: 1;
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+nav {
+  width: 180px;
+  box-sizing: border-box;
+  border-right: 1px solid #e5e5e5;
+  background: #eee;
+}
+
+section {
+  flex: 1;
 }
 
 footer {

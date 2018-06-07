@@ -6,6 +6,7 @@ import { template } from 'underscore';
 import appTmpl from 'templates/app-tmpl.html';
 import indexStyle from 'statics/css/layouts/index.css';
 import UserinfoMenuView from 'views/displays/UserinfoMenuView';
+import WebsiteMenuView from 'views/displays/WebsiteMenuView';
 
 export default Backbone.View.extend({
   id: 'app',
@@ -19,6 +20,8 @@ export default Backbone.View.extend({
         alert(text);
       }
     });
+    // 初始化网站菜单view
+    this.websiteMenuView = new WebsiteMenuView();
     this.render();
   },
 
@@ -26,6 +29,7 @@ export default Backbone.View.extend({
     const res = { style: indexStyle };
 
     this.$el.html(this.template({ style: indexStyle })).appendTo(document.body);
-    this.$(`.${ indexStyle[ 'userinfo-menu' ] }`).append(this.userinfoMenuView.$el);
+    this.$(`.${ indexStyle[ 'userinfo-menu' ] }`).html(this.userinfoMenuView.$el);
+    this.$('nav').html(this.websiteMenuView.$el);
   }
 });

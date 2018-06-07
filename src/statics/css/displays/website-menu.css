@@ -1,1 +1,34 @@
 @charset "UTF-8";
+
+.wrapper, .sub-wrapper {
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper li {
+  border-bottom: 1px solid #e5e5e5;
+  list-style: none;
+}
+
+.wrapper .open {
+  border: 0 none;
+}
+
+.wrapper > li > a,
+.sub-wrapper > li > a {
+  display: block;
+  font-size: 14px;
+  padding: 10px 15px 10px 10px;
+  text-decoration: none;
+  color: #333;
+  text-align: center;
+}
+
+.sub-wrapper > li > a {
+  padding-left: 20px;
+}
+
+.wrapper > li > a cite,
+.sub-wrapper > li > a cite {
+  font-style: normal;
+}

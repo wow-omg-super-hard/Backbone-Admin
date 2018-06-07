@@ -77,7 +77,9 @@ baseConfig.plugins.push(
   new webpack.HotModuleReplacementPlugin(),
   new webpack.NoErrorsPlugin(),
   new webpack.DefinePlugin({
-    NODE_ENV: JSON.stringify('dev')
+    NODE_ENV: JSON.stringify('dev'),
+    HOST: JSON.stringify('http://localhost'),
+    PORT: JSON.stringify(7878)
   })
 );
 

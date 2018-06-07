@@ -50,6 +50,6 @@ export default function createRouter (AppView, noStartHistory) {
 
   // 监听url变化，触发action
   if (!noStartHistory) {
-    Backbone.history.start({ pushState: true, hashChange: false });
+    Backbone.history.start();
   }
 }

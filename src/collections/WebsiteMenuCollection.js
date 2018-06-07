@@ -1,5 +1,5 @@
 import { Collection } from 'backbone';
-import config from '../../config';
+import config from '../config';
 import MenuModel from 'models/dbase/WebsiteMenuModel';
 
 export default Collection.extend({
@@ -7,11 +7,11 @@ export default Collection.extend({
 
   model: MenuModel,
 
-  createMenuTree() {
+  getTreeMenus() {
     const treeMenus = [];
     const menus = this.toJSON();
     const iterateMenus = [ ...menus ];
-    const createRootMenus = () => menus.forEach((menu, idx) => {
+    const createRootMenus = () => iterateMenus.forEach((menu, idx) => {
       if (menu.pid === 0) {
         menus.splice(idx, 1);
         treeMenus.push(getChildMenus(menu, menu.id));

@@ -25,6 +25,7 @@ module.exports = {
       views: path.join(pathInfo.__SRC__, 'views'),
       templates: path.join(pathInfo.__SRC__, 'templates'),
       models: path.join(pathInfo.__SRC__, 'models'),
+      collections: path.join(pathInfo.__SRC__, 'collections'),
       statics: path.join(pathInfo.__SRC__, 'statics'),
       routers: path.join(pathInfo.__SRC__, 'routers'),
       api: path.join(pathInfo.__SRC__, 'api'),
