@@ -26,6 +26,6 @@ export default Backbone.View.extend({
     const res = { style: indexStyle };
 
     this.$el.html(this.template({ style: indexStyle })).appendTo(document.body);
-    this.$(`.${ indexStyle[ 'user-dropdown' ] }`).append(this.userinfoMenuView.$el);
+    this.$(`.${ indexStyle[ 'userinfo-menu' ] }`).append(this.userinfoMenuView.$el);
   }
 });

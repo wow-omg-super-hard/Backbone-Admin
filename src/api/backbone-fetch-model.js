@@ -4,7 +4,7 @@
 
 import Backbone from 'backbone';
 
-export default function fetchModel (extractKey) {
+export default function createFetchModel (extractKey) {
   return Backbone.Model.extend({
     // 格式化
     parse(resp) {

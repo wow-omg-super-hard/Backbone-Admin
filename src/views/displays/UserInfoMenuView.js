@@ -4,8 +4,9 @@
  * 组件也是视图、数据、状态的集合
  * 组件内部定义model，控制着组件的交互、和数据展示
  */
-import { template } from 'underscore';
+
 import { View } from 'backbone';
+import { template } from 'underscore';
 import UserInfoMenuModel from 'models/ui/UserInfoMenuModel';
 import dropdownStyle from 'statics/css/displays/userinfo-menu.css';
 import dropdownTmpl from 'templates/userinfo-menu-tmpl.html';
@@ -21,7 +22,7 @@ export default View.extend({
     this.render(this.model);
   },
 
-  className: 'dropdown',
+  className: 'userinfo-inner-menu',
 
   template: template(dropdownTmpl),
 
