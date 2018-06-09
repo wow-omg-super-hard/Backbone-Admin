@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+.panel-search {
+  margin-bottom: 20px;
+}
+
+.panel-ad {
+  background: rgb(242, 242, 242);
+  margin-bottom: 10px;
+  padding: 5px;
+  border-radius: 0 2px 2px 0;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  height: 48px;
+  box-sizing: border-box;
+}
+
+.table-show {
+  margin-bottom: 20px;
+}
+
+.panel-pagination {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  height: 35px;
+}

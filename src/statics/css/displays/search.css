@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+.inner-search {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+
+.btn-search {
+  padding: 11px 0;
+  color: #fff;
+  text-align: center;
+  width: 60px;
+  border-radius: 2px;
+  font-size: 14px;
+  background: #009688;
+  border: 0 none;
+  cursor: pointer;
+  outline: none;
+  line-height: 1;
+}
