@@ -13,7 +13,7 @@ export default Model.extend({
   },
 
   // 和后台交互的根url
-  urlRoot: ''
+  urlRoot: '',
 
   // 切换'can_enabled'字段
   toggle() {

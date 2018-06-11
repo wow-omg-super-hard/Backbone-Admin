@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+table thead tr,
+table tbody tr:hover {
+  background: #f2f2f2;
+}
+
+table td,
+table th {
+  position: relative;
+  padding: 9px 15px;
+  min-height: 20px;
+  line-height: 20px;
+  font-size: 14px;
+}
