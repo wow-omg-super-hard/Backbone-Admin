@@ -1,0 +1,21 @@
+<div class="<%= style[ 'pagination-inner' ] %>">
+  <a href="javascript:;" class="btn-first" data-num="<%= currPage %>">首页</a>
+
+  <% if (hasPrevPage) { %>
+    <button class="btn-prev">上一页</button>
+  <% } else { %>
+    <button class="btn-prev" disabled>上一页</button>
+  <% } %>
+
+  <% for (var i = 1; i <= visibleNumber; i++) { %>
+    <a href="javascript:;" class="btn-num <%= currPage === i ? style[ 'active' ] : '' %>" data-num="<%= i %>"><%= i %></a>
+  <% } %>
+
+  <% if (hasNextPage) { %>
+    <button class="btn-next">下一页</button>
+  <% } else { %>
+    <button class="btn-next" disabled>下一页</button>
+  <% } %>
+
+  <a href="javascript:;" class="btn-end" data-num="<%= pageNumber %>">尾页</a>
+</div>

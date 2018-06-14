@@ -9,6 +9,7 @@ import createInputCom from 'components/ui/InputCom';
 import createSubmitButtonCom from 'components/ui/SubmitButtonCom';
 import createModalCom from 'components/ui/modal/ModalCom';
 import createTableCom from 'components/ui/table/TableCom';
+import createPaginationCom from 'components/ui/pagination/PaginationCom';
 import createSearchView from 'views/displays/SearchView';
 
 export default View.extend({
@@ -49,6 +50,11 @@ export default View.extend({
     this.searchView = new (createSearchView(inputComs))({ model: this.model });
     this.tableCom = new (createTableCom(columns, style[ 'table' ]))({ collection: this.collection });
     this.addMemberModalCom = new (createModalCom('添加用户', 450, 'dfdsf', () => alert('关闭')));
+    this.paginationCom = new (createPaginationCom(15));
+
+    // 分页事件
+    this.paginationCom.on('page', this.pagination, this);
+
     this.render();
   },
 
@@ -105,7 +111,15 @@ export default View.extend({
     this.$(`.${ style[ 'table-show' ] }`).html(this.tableCom.$el);
 
     // 添加添加会员对话框
-    this.$el.append(this.addMemberModalCom.$el);
+    //this.$el.append(this.addMemberModalCom.$el);
+
+    // 添加分页
+    this.$(`.${ style[ 'panel-pagination' ] }`).html(this.paginationCom.$el);
+
+  },
+
+  pagination(page) {
+    alert(`当前页: ${ page }`);
   },
 
   onBatchDelMemberHandle() {

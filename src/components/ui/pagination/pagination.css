@@ -1,0 +1,42 @@
+@charset "UTF-8";
+
+.pagination {
+  position: relative;
+  height: 100%;
+}
+
+.pagination-inner {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.pagination a,
+.pagination button {
+  display: inline-block;
+  background: #fff;
+  color: #888;
+  padding: 10px;
+  min-width: 15px;
+  border: 1px solid #E2E2E2;
+  text-decoration: none;
+  outline: none;
+  cursor: pointer;
+  line-height: 1;
+  font-size: 12px;
+  text-align: center;
+}
+
+.pagination button[disabled] {
+  cursor: not-allowed;
+  background-color: #f7f7f7;
+  border-color: #d9d9d9;
+  color: #d9d9d9;
+}
+
+.pagination .active {
+  color: #fff;
+  background: #009688;
+  border-color: #009688;
+}
